@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function NavbarMobile() {
   const Menus = [
@@ -21,14 +21,24 @@ export default function NavbarMobile() {
     },
   ];
 
-  const router = useRouter();
   const pathname = usePathname();
   const isActive = (url) => {};
   const activeIndex = Menus.findIndex((menu) => menu.url === pathname);
   const activeDis = Menus[activeIndex].dis;
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="flex fixed bottom-0 w-full z-50">
-      <div className="bg-white max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 ">
+      <div
+        className={`bg-white max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 duration-500 transform transition-transform ${
+          mounted ? "translate-y-0" : "translate-y-full"
+        }`}
+      >
         <ul className="flex relative text-black">
           <span
             className={`bg-rose-600 duration-500 ${activeDis} border-4 border-gray-900 h-16 w-16 absolute -top-5 rounded-full`}

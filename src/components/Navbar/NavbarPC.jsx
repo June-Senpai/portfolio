@@ -1,37 +1,43 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const NavbarPC = () => {
   const Menus = [
-    { name: "Home", icon: "home-outline", dis: "translate-x-0", url: "/" },
+    { name: "Home", icon: "home-outline", url: "/" },
     {
       name: "About",
       icon: "id-card-outline",
-      dis: "translate-x-16",
       url: "/about",
     },
     {
       name: "Contact",
       icon: "call-outline",
-      dis: "translate-x-32",
       url: "/contact",
     },
   ];
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section className="fixed top-0 left-0 h-screen flex items-center">
       <div
         className={`bg-[#0e0e0e] rounded-lg ${
           open ? "w-52" : "w-16"
-        } duration-500 text-gray-100 px-4`}
+        } duration-1000 text-gray-100 px-4 transform transition-transform ${
+          mounted ? "translate-y-0 scale-100" : "-translate-y-full scale-0"
+        }`}
       >
         <div className="py-3 flex justify-end">
           <span
             className={`cursor-pointer text-2xl transform transition-transform duration-300 ${
               open
                 ? "rotate-180 transform transition-transform duration-300"
-                : "rotate-0 transform transition-transform duration-300"
+                : "rotate-0"
             }`}
             onClick={() => setOpen(!open)}
           >
