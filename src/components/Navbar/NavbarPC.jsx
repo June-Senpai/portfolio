@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const NavbarPC = () => {
   const Menus = [
@@ -22,6 +23,8 @@ const NavbarPC = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const pathname = usePathname();
 
   return (
     <section className="fixed top-0 left-0 h-screen flex items-center">
@@ -45,34 +48,39 @@ const NavbarPC = () => {
           </span>
         </div>
         <div className="mt-4 flex flex-col gap-4 relative pb-4">
-          {Menus?.map((menu, i) => (
-            <Link
-              href={menu?.url}
-              key={i}
-              className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md`}
-            >
-              <div className="text-xl">
-                <ion-icon name={menu.icon}></ion-icon>
-              </div>
-              <h2
-                style={{
-                  transitionDelay: `${i + 3}00ms`,
-                }}
-                className={`whitespace-pre duration-500 ${
-                  !open && "opacity-0 translate-x-28 overflow-hidden"
+          {Menus?.map((menu, i) => {
+            const isActive = pathname === menu.url;
+            return (
+              <Link
+                href={menu?.url}
+                key={i}
+                className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md ${
+                  isActive && "pl-1 pb-1 text-red-400 bg-gray-800"
                 }`}
               >
-                {menu?.name}
-              </h2>
-              <h2
-                className={`${
-                  open && "hidden"
-                } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
-              >
-                {menu?.name}
-              </h2>
-            </Link>
-          ))}
+                <div className="text-xl">
+                  <ion-icon name={menu.icon}></ion-icon>
+                </div>
+                <h2
+                  style={{
+                    transitionDelay: `${i + 3}00ms`,
+                  }}
+                  className={`whitespace-pre duration-500 ${
+                    !open && "opacity-0 translate-x-28 overflow-hidden"
+                  }`}
+                >
+                  {menu?.name}
+                </h2>
+                <h2
+                  className={`${
+                    open && "hidden"
+                  } absolute left-48 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1 group-hover:left-14 group-hover:duration-300 group-hover:w-fit  `}
+                >
+                  {menu?.name}
+                </h2>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </section>
