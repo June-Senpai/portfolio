@@ -48,7 +48,7 @@ export default function NavbarMobile() {
               className="w-3.5 h-3.5 bg-transparent absolute top-4 -right-[18px] 
           rounded-tl-[11px] shadow-myShadow2"
             ></span>
-          </span>
+          </span>{" "}
           {Menus.map((menu, i) => {
             const isActive = pathname === menu.url;
             return (

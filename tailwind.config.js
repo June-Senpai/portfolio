@@ -15,6 +15,22 @@ module.exports = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        circularLight:
+          "repeating-radial-gradient(black 2px, white 5px, white 100px)",
+      },
+      height: {
+        128: "32rem",
+        144: "36rem",
+        160: "40rem",
+        176: "46rem",
+        192: "53rem",
+      },
+      width: {
+        128: "32rem",
+        144: "36rem",
+        160: "40rem",
+        176: "46rem",
+        192: "53rem",
       },
     },
   },
