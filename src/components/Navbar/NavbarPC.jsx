@@ -23,7 +23,7 @@ const NavbarPC = () => {
   const pathname = usePathname();
 
   return (
-    <section className={`fixed top-0 left-0 h-screen flex items-center`}>
+    <section className={`fixed top-0 left-0 h-screen flex items-center z-30`}>
       <div className="rounded-lg p-px bg-gradient-to-b from-blue-300 to bg-pink-300 dark:from-blue-800 shadow-2xl">
         <div
           className={`bg-[#0e0e0e] relative rounded-lg ${

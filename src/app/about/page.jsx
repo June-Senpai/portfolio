@@ -1,13 +1,7 @@
 "use client";
 
 import Skills from "@/components/Skills/Skills";
-import {
-  motion,
-  spring,
-  useInView,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
 import React, { useRef, useEffect } from "react";
 
 export const metadata = {
@@ -65,7 +59,7 @@ const AnimatedText = ({ text }) => {
 export default function About() {
   return (
     <>
-      <div className="flex justify-center items-center mt-3">
+      <div className="font-bold text-8xl mt-64 w-full text-center">
         <motion.h1
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
