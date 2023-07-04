@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        myShadow1: "4.1px -5px 0 0 rgb(0, 0, 0)",
-        myShadow2: "-4.1px -5px 0 0 rgb(0, 0, 0)",
+        myShadow1: "4.1px -5px 0 0 white",
+        myShadow2: "-4.1px -5px 0 0 white",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

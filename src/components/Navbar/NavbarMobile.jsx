@@ -24,7 +24,10 @@ export default function NavbarMobile() {
   const pathname = usePathname();
   const isActive = (url) => {};
   const activeIndex = Menus.findIndex((menu) => menu.url === pathname);
-  const activeDis = Menus[activeIndex].dis;
+  const activeDis =
+    activeIndex >= 0 && activeIndex < Menus.length
+      ? Menus[activeIndex].dis
+      : null;
 
   const [mounted, setMounted] = useState(false);
 
@@ -35,20 +38,20 @@ export default function NavbarMobile() {
   return (
     <div className="flex fixed bottom-0 w-full z-50">
       <div
-        className={`bg-white max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 duration-500 transform transition-transform ${
+        className={`bg-black  max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 duration-500 transform transition-transform ${
           mounted ? "translate-y-0" : "translate-y-full"
         }`}
       >
-        <ul className="flex relative text-black">
+        <ul className="flex relative text-white">
           <span
-            className={`bg-rose-600 duration-500 ${activeDis} border-4 border-gray-900 h-16 w-16 absolute -top-5 rounded-full`}
+            className={`bg-rose-600 duration-500 ${activeDis} border-4 border-white h-16 w-16 absolute -top-5 rounded-full`}
           >
             <span className="w-3.5 h-3.5 bg-transparent absolute top-4 -left-[18px] rounded-tr-[11px] shadow-myShadow1"></span>
             <span
               className="w-3.5 h-3.5 bg-transparent absolute top-4 -right-[18px] 
           rounded-tl-[11px] shadow-myShadow2"
             ></span>
-          </span>{" "}
+          </span>
           {Menus.map((menu, i) => {
             const isActive = pathname === menu.url;
             return (
@@ -60,7 +63,7 @@ export default function NavbarMobile() {
                   } flex flex-col text-center pt-6`}
                 >
                   <span
-                    className={`text-xl cursor-pointer duration-500 ${
+                    className={`text-xl cursor-pointer duration-500  ${
                       isActive && "-mt-6  "
                     } `}
                   >

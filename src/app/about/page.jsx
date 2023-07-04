@@ -1,12 +1,15 @@
 "use client";
 
-import Skills from "@/components/Skills/Skills";
-import { motion, useInView, useMotionValue, useSpring } from "framer-motion";
+import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useAnimation,
+} from "framer-motion";
 import React, { useRef, useEffect } from "react";
-
-export const metadata = {
-  title: "About Page",
-};
 
 const AnimatedNumbers = ({ value }) => {
   const ref = useRef(null);
@@ -57,32 +60,43 @@ const AnimatedText = ({ text }) => {
 };
 
 export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const mainControls = useAnimation();
+  useEffect(() => {
+    console.log({ isInView });
+    if (isInView) {
+      mainControls.start("visible");
+    }
+  }, [isInView]);
   return (
     <>
-      <div className="font-bold text-8xl mt-64 w-full text-center">
-        <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 3 }}
-        >
-          About me
-        </motion.h1>
-      </div>
-
-      <div className="col-span-2 flex flex-col items-end justify-between">
-        <div className="flex flex-col items-end justify-center mr-16 mt-16 ">
-          <span className="inline-block text-3xl font-bold">
-            <AnimatedText text="Keshav Juneja" />
-          </span>
-          <span className="inline-block text-3xl font-bold">
-            <AnimatedNumbers value={24} />+
-          </span>
-          <h2 className="text-2xl mr-3 font-medium capitalize text-pink-500 ">
-            Age
-          </h2>
+      <div ref={ref}>
+        <div className="font-bold text-8xl mt-64 text-center">
+          <motion.h1
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 3 }}
+          >
+            About me
+          </motion.h1>
         </div>
+        <div className="col-span-2 flex flex-col items-end justify-between">
+          <div className="flex flex-col items-end justify-center mr-16 mt-16 ">
+            <span className="inline-block text-3xl font-bold">
+              <AnimatedText text="Keshav Juneja" />
+            </span>
+            <span className="inline-block text-3xl font-bold">
+              <AnimatedNumbers value={24} />+
+            </span>
+            <h2 className="text-2xl mr-3 font-medium capitalize text-pink-500 ">
+              Age
+            </h2>
+          </div>
+        </div>
+        <Skills />
+        <Experience />
       </div>
-      <Skills />
     </>
   );
 }
