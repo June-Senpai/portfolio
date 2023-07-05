@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        capPink: "rgb(178, 51, 104)",
+        backPink: "rgb(241, 149, 180)",
+      },
       boxShadow: {
         myShadow1: "4.1px -5px 0 0 white",
         myShadow2: "-4.1px -5px 0 0 white",
@@ -34,5 +38,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };

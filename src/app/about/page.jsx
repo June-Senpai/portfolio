@@ -1,6 +1,6 @@
 "use client";
 
-import Experience from "@/components/Experience";
+import Experience from "@/components/Education";
 import Skills from "@/components/Skills";
 import {
   motion,
@@ -8,6 +8,7 @@ import {
   useMotionValue,
   useSpring,
   useAnimation,
+  useScroll,
 } from "framer-motion";
 import React, { useRef, useEffect } from "react";
 
@@ -69,8 +70,33 @@ export default function About() {
       mainControls.start("visible");
     }
   }, [isInView]);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
+
+  const Line = () => {
+    return (
+      <div className="flex">
+        <img src="t.png" className="rotate-45 h-56" alt="" />
+        <img src="t.png" className="rotate-12 h-56" alt="" />
+        <img src="t.png" className="rotate-12 h-56" alt="" />
+        <img src="t.png" className="rotate-180 h-56" alt="" />
+        <img src="t.png" className="rotate-45 h-56" alt="" />
+      </div>
+    );
+  };
+
   return (
-    <>
+    <div className="overflow-x-hidden">
+      {/* for above scroll progress */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-2.5 bg-pink-200 origin-left"
+        style={{ scaleX }}
+      />
       <div ref={ref}>
         <div className="font-bold text-8xl mt-64 text-center">
           <motion.h1
@@ -94,9 +120,16 @@ export default function About() {
             </h2>
           </div>
         </div>
+        <Line />
         <Skills />
+        <Line />
         <Experience />
+        <div className="flex">
+          <img src="line.png" className="h-56" alt="" />
+          <img src="line.png" className="h-56" alt="" />
+          <img src="line.png" className="h-56" alt="" />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

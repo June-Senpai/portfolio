@@ -24,15 +24,11 @@ const NavbarPC = () => {
 
   return (
     <section className={`fixed top-0 left-0 h-screen flex items-center z-30`}>
-      <div className="rounded-lg p-px bg-gradient-to-b from-blue-300 to bg-pink-300 dark:from-blue-800 shadow-2xl">
+      <div className="rounded-lg p-px bg-gradient-to-b from-blue-200 to bg-pink-300 shadow-pink-300  shadow-2xl">
         <div
-          className={`bg-[#0e0e0e] relative rounded-lg ${
+          className={`bg-white relative rounded-lg ${
             open ? "w-52" : "w-16"
-          } duration-1000 text-gray-100 px-4 transform transition-transform`}
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #0e0e0e, #0e0e0e), radial-gradient(150% 150% at 50% -20%, rgba(255, 255, 255, 0.2), transparent), radial-gradient(80% 80% at 50% -10%, rgba(255, 255, 255, 0.4), transparent), radial-gradient(50% 50% at 50% 120%, rgba(255, 0, 255, 0.6), transparent)",
-          }}
+          } duration-1000 text-black px-4 transform transition-transform`}
         >
           <div className="py-3 flex justify-end">
             <span
@@ -53,8 +49,8 @@ const NavbarPC = () => {
                 <Link
                   href={menu?.url}
                   key={i}
-                  className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-gray-800 rounded-md ${
-                    isActive && " text-red-400 "
+                  className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-pink-100 hover:rounded-xl rounded-md ${
+                    isActive && " text-pink-400 "
                   }`}
                 >
                   <div className="text-xl">
