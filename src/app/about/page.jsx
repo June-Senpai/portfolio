@@ -1,7 +1,7 @@
 "use client";
 
-import Experience from "@/components/Education";
-import Skills from "@/components/Skills";
+import Experience from "@/components/AboutComponents/Education";
+import Skills from "@/components/AboutComponents/Skills";
 import {
   motion,
   useInView,

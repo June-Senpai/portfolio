@@ -7,7 +7,6 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import Skills from "@/components/Skills";
 export default function Projects() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });

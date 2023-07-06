@@ -9,7 +9,7 @@ export default function Experience() {
     return (
       <li
         ref={ref}
-        className="my-8 first:mt-0 last:mb-0 ml-16 xl:ml-16 md:ml-16 sm:ml-16 2xl:ml-20 flex flex-col items-center justify-between"
+        className="my-8 first:mt-0 last:mb-0 ml-20  flex flex-col items-center justify-between"
       >
         <LiIcon reference={ref} />
         <motion.div
