@@ -24,7 +24,7 @@ const NavbarPC = () => {
 
   return (
     <section className={`fixed top-0 left-0 h-screen flex items-center z-30`}>
-      <div className="rounded-lg p-px bg-gradient-to-b from-blue-200 to bg-pink-300 shadow-pink-300  shadow-2xl">
+      <div className="rounded-lg p-px bg-gradient-to-b from-yellow-300 to bg-pink-300 shadow-pink-300  shadow-2xl">
         <div
           className={`bg-white relative rounded-lg ${
             open ? "w-52" : "w-16"

@@ -1,6 +1,7 @@
 "use client";
 
 import Experience from "@/components/AboutComponents/Education";
+import ProjectsPart from "@/components/AboutComponents/Projects";
 import Skills from "@/components/AboutComponents/Skills";
 import {
   motion,
@@ -124,6 +125,8 @@ export default function About() {
         <Skills />
         <Line />
         <Experience />
+        <Line />
+        <ProjectsPart />
         <div className="flex">
           <img src="line.png" className="h-56" alt="" />
           <img src="line.png" className="h-56" alt="" />
