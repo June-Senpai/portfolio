@@ -32,7 +32,7 @@ const Skills = () => {
           Skills
         </h1>
         <motion.div className="relative flex items-center justify-center mt-2 z-0 ">
-          <div className=" z-0 flex border-transparent 2xl:border-pink-300 xl:border-transparent md:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-192 w-192">
+          <div className=" z-0 flex border-transparent 2xl:border-pink-300 xl:border-transparent md:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-176 w-176">
             <div className=" z-0 flex border-transparent 2xl:border-transparent xl:border-pink-300 md:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-176 w-176">
               <div className="z-0 flex border-transparent lg:border-pink-300 sm:border-transparent items-center justify-center rounded-full border-4 h-144 w-144">
                 <div className="flex z-0 border-transparent lg:border-pink-300 md:border-pink-300 2xl:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-128 w-128">

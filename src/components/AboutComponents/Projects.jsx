@@ -27,44 +27,55 @@ const ProjectsPart = () => {
       demoUrl: "https://vendor-manager-three.vercel.app",
     },
   ];
+
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
 
+  const [isChanging, setIsChanging] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState(null);
+
   const handleNextClick = () => {
-    setCurrentProjectIndex((prevIndex) =>
-      prevIndex === projects.length - 1 ? 0 : prevIndex + 1
-    );
+    setIsChanging(true);
+    setTimeout(() => {
+      setCurrentProjectIndex((prevIndex) =>
+        prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+      );
+      setIsChanging(false);
+    }, 300);
   };
 
   const handlePrevClick = () => {
-    setCurrentProjectIndex((prevIndex) =>
-      prevIndex === 0 ? projects.length - 1 : prevIndex - 1
-    );
+    setIsChanging(true);
+    setTimeout(() => {
+      setCurrentProjectIndex((prevIndex) =>
+        prevIndex === 0 ? projects.length - 1 : prevIndex - 1
+      );
+      setIsChanging(false);
+    }, 300);
   };
 
   return (
     <div className="flex flex-col items-center ">
       <div className="text-8xl font-bold text-pink-300 mx-auto mb-11">
         <h1>
-          <span class="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1589307004173-3c95204d00ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80')]">
+          <span className="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1589307004173-3c95204d00ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80')]">
             My
           </span>
-          <span class="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1587738433410-8f34adcb0c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-position-x-right">
+          <span className="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1587738433410-8f34adcb0c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-position-x-right">
             Projects
           </span>
         </h1>
       </div>
-
       <div className="m-4 relative overflow-hidden">
-        <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
+        <div className="group relative items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30">
           <button
             onClick={handlePrevClick}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-pink-300 rounded-lg text-white mx-2 z-20"
+            className="hover:opacity-90 absolute left-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-pink-400 rounded-lg text-white mx-2 z-20 hidden lg:block"
           >
             <ion-icon name="caret-back-outline"></ion-icon>
           </button>
           <button
             onClick={handleNextClick}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-pink-300 rounded-lg text-white mx-2 z-20"
+            className="hover:opacity-90 absolute right-0 top-1/2 transform -translate-y-1/2 px-4 py-2 bg-pink-400 rounded-lg text-white mx-2 z-20 hidden lg:block"
           >
             <ion-icon name="caret-forward-outline"></ion-icon>
           </button>
@@ -72,7 +83,9 @@ const ProjectsPart = () => {
             <img
               src={projects[currentProjectIndex].imageUrl}
               alt={projects[currentProjectIndex].name}
-              className="w-full h-[500px] object-cover transition-transform duration-900 group-hover:scale-105 ease-in-out"
+              className={`w-full h-[500px] object-cover rounded-lg transition-transform duration-900 group-hover:scale-105 ease-in-out transition-all duration-300 ${
+                isChanging ? "translate-x-full" : ""
+              }`}
             />
           </div>
           <div
@@ -84,14 +97,18 @@ const ProjectsPart = () => {
             <h1 className="font-serif text-3xl font-bold text-pink-300">
               {projects[currentProjectIndex].name}
             </h1>
-            <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 mx-8">
+            <p
+              className={`mb-3 text-lg italic mx-8 text-white transition-opacity duration-300 ${
+                isChanging ? "opacity-0" : "group-hover:opacity-100"
+              }`}
+            >
               {projects[currentProjectIndex].description}
             </p>
             <a
               href={projects[currentProjectIndex].githubUrl}
               target="_blank"
               rel="noreferrer"
-              className=" flex items-center px-4 py-2 bg-neutral-900 shadow-black/60 rounded-full text-white mx-2 text-lg font-com capitalize"
+              className="hover:opacity-80 flex items-center px-4 py-2 bg-neutral-900 shadow-black/60 rounded-full text-white mx-2 text-lg font-com capitalize"
             >
               <ion-icon name="logo-github" className="mr-2"></ion-icon>
               <span className="ml-1">GitHub</span>
@@ -101,17 +118,18 @@ const ProjectsPart = () => {
               href={projects[currentProjectIndex].demoUrl}
               target="_blank"
               rel="noreferrer"
-              className="px-4 py-2 bg-pink-500 shadow-black/60 rounded-full text-white mx-2 text-lg font-com capitalize"
+              className="hover:opacity-80 px-4 py-2 bg-pink-500 shadow-black/60 rounded-full text-white mx-2 text-lg font-com capitalize"
             >
               Demo
             </a>
           </div>
         </div>
       </div>
-      <div className="flex items-center">
+
+      <div className="flex items-center mt-3">
         <button
           onClick={handlePrevClick}
-          className="px-4 py-2 bg-pink-300 rounded-lg text-white mx-2"
+          className="hover:opacity-90 px-4 py-2 bg-pink-400 rounded-lg text-white mx-2"
         >
           Prev
         </button>
@@ -120,16 +138,26 @@ const ProjectsPart = () => {
             key={index}
             onClick={() => {
               setCurrentProjectIndex(index);
+              setClickedIndex(index);
+              setTimeout(() => {
+                setClickedIndex(null);
+              }, 300);
             }}
-            className={`w-4 h-4 rounded-full mx-2 cursor-pointer transition-all duration-300 ${
+            className={`w-7 h-7 rounded-full mx-2 cursor-pointer transition-all duration-300 ${
               currentProjectIndex === index ? "bg-pink-300" : "bg-gray-300"
-            } hover:bg-pink-200 hover:scale-[1.3]`}
-          />
+            } hover:bg-pink-200 hover:scale-[1.3] relative`}
+          >
+            <span
+              className={`absolute inset-0 rounded-full border border-pink-300 transition-all duration-300 ${
+                clickedIndex === index ? "scale-[3] opacity-0" : ""
+              }`}
+            />
+          </div>
         ))}
 
         <button
           onClick={handleNextClick}
-          className="px-4 py-2 bg-pink-300 rounded-lg text-white mx-2"
+          className="hover:opacity-90 px-4 py-2 bg-pink-400 rounded-lg text-white mx-2"
         >
           Next
         </button>

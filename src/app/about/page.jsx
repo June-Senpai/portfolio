@@ -98,8 +98,8 @@ export default function About() {
         className="fixed top-0 left-0 right-0 h-2.5 bg-pink-200 origin-left"
         style={{ scaleX }}
       />
-      <div ref={ref}>
-        <div className="font-bold text-8xl mt-64 text-center">
+      <div>
+        <div className="font-bold text-8xl mt-5 text-center">
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -114,7 +114,8 @@ export default function About() {
               <AnimatedText text="Keshav Juneja" />
             </span>
             <span className="inline-block text-3xl font-bold">
-              <AnimatedNumbers value={24} />+
+              <AnimatedNumbers value={24} />
+              <AnimatedText text="+" />
             </span>
             <h2 className="text-2xl mr-3 font-medium capitalize text-pink-500 ">
               Age
