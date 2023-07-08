@@ -54,7 +54,7 @@ const ProjectsPart = () => {
   };
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center mb-10 ">
       <div className="text-8xl font-bold text-pink-300 mx-auto mb-11">
         <h1>
           <span className="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1589307004173-3c95204d00ee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80')]">
@@ -83,7 +83,7 @@ const ProjectsPart = () => {
             <img
               src={projects[currentProjectIndex].imageUrl}
               alt={projects[currentProjectIndex].name}
-              className={`w-full h-[500px] object-cover rounded-lg transition-transform duration-900 group-hover:scale-105 ease-in-out transition-all duration-300 ${
+              className={`w-full h-[500px] object-cover rounded-lg  duration-900 group-hover:scale-105 ease-in-out transition-all duration-300 ${
                 isChanging ? "translate-x-full" : ""
               }`}
             />

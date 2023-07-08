@@ -94,45 +94,61 @@ export default function About() {
   return (
     <div className="overflow-x-hidden">
       {/* for above scroll progress */}
+
       <motion.div
         className="fixed top-0 left-0 right-0 h-2.5 bg-pink-200 origin-left"
         style={{ scaleX }}
       />
       <div>
-        <div className="font-bold text-8xl mt-5 text-center">
+        <div className="font-bold text-8xl mt-5 text-center relative">
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 3 }}
           >
-            About me
+            <span>A</span>
+            <span className="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1587738433410-8f34adcb0c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-position-x-right">
+              bout me
+            </span>
           </motion.h1>
         </div>
-        <div className="col-span-2 flex flex-col items-end justify-between">
-          <div className="flex flex-col items-end justify-center mr-16 mt-16 ">
-            <span className="inline-block text-3xl font-bold">
+        <div className="flex flex-col lg:flex-row justify-between">
+          <div className="ml-28 mt-16">
+            <span className="text-3xl mr-3 font-medium capitalize ">Name:</span>
+            <span className="text-3xl font-bold text-pink-500 ">
               <AnimatedText text="Keshav Juneja" />
             </span>
-            <span className="inline-block text-3xl font-bold">
-              <AnimatedNumbers value={24} />
-              <AnimatedText text="+" />
+            <span className="text-3xl font-bold">
+              <br />
+              <span className="text-3xl font-medium capitalize ">Age:</span>
+              <span className="text-pink-500 ml-9">
+                <AnimatedNumbers value={24} />
+                <AnimatedText text="+" />
+              </span>
             </span>
-            <h2 className="text-2xl mr-3 font-medium capitalize text-pink-500 ">
-              Age
-            </h2>
+            <p className="text-lg font-light mt-5 w-[90%] leading-relaxed">
+              Hi there! I'm a full stack developer with a passion for building
+              awesome web applications. When I'm not coding or pushing pixels,
+              you'll find me playing games or trying out new recipes in the
+              kitchen (with varying degrees of success). I have a love-hate
+              relationship with JavaScript, but we're working on it. My motto is
+              “work hard, play hard, and always keep learning.” And if all else
+              fails, there's always coffee. Lots and lots of coffee.
+            </p>
           </div>
+          <img
+            src="/about/aboutr.png"
+            className="hidden lg:block w-[30%] -mr-2 -mt-40 mb-32"
+            alt=""
+          />
         </div>
+
         <Line />
         <Skills />
         <Line />
         <Experience />
         <Line />
         <ProjectsPart />
-        <div className="flex">
-          <img src="line.png" className="h-56" alt="" />
-          <img src="line.png" className="h-56" alt="" />
-          <img src="line.png" className="h-56" alt="" />
-        </div>
       </div>
     </div>
   );

@@ -1,13 +1,7 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React from "react";
 
-import {
-  motion,
-  useInView,
-  useAnimation,
-  useMotionValue,
-  useSpring,
-} from "framer-motion";
+import { motion } from "framer-motion";
 const Skill = ({ x, y, imgSrc }) => {
   return (
     <motion.div
@@ -24,23 +18,50 @@ const Skill = ({ x, y, imgSrc }) => {
   );
 };
 
+const Image = ({ index, className }) => {
+  const src = "/skills/flowerSpin.png";
+  const alt = `flower${index}`;
+
+  const yValue = index === 1 ? 100 : -100;
+
+  return (
+    <motion.img
+      src={src}
+      alt={alt}
+      className={className}
+      animate={{ rotate: 360, y: [0, yValue, 0] }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "linear",
+      }}
+    />
+  );
+};
+
 const Skills = () => {
   return (
     <>
       <div>
-        <h1 className="font-bold text-8xl  text-center relative sm:top-32 lg:top-20 xl:top-0 ">
-          Skills
+        <h1 className="font-bold text-8xl mb-10 text-center relative sm:top-32 lg:top-20 xl:top-0 ">
+          <span className="text-8xl font-extrabold  bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1587738433410-8f34adcb0c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-position-x-right">
+            Skills
+          </span>
         </h1>
+
+        <div className="flex justify-between">
+          <Image index={1} className="relative left-32 top-32 w-1/12" />
+          <Image index={2} className="relative right-20 top-[40rem] w-1/12" />
+        </div>
         <motion.div className="relative flex items-center justify-center mt-2 z-0 ">
           <div className=" z-0 flex border-transparent 2xl:border-pink-300 xl:border-transparent md:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-176 w-176">
             <div className=" z-0 flex border-transparent 2xl:border-transparent xl:border-pink-300 md:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-176 w-176">
-              <div className="z-0 flex border-transparent lg:border-pink-300 sm:border-transparent items-center justify-center rounded-full border-4 h-144 w-144">
+              <div className="z-0 flex border-transparent lg:border-pink-300 sm:border-transparent  items-center justify-center rounded-full border-4 h-144 w-144">
                 <div className="flex z-0 border-transparent lg:border-pink-300 md:border-pink-300 2xl:border-transparent sm:border-transparent  items-center justify-center rounded-full border-4 h-128 w-128">
                   <div
                     className=" 
                   2xl:border-pink-300
                   lg:border-transparent
-                  
                 flex items-center justify-center rounded-full border-4 border-pink-300
                 h-96 w-96"
                   >

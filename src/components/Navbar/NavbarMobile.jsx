@@ -38,7 +38,7 @@ export default function NavbarMobile() {
   return (
     <div className="flex fixed bottom-0 w-full z-50">
       <div
-        className={`bg-black  max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 duration-500 transform transition-transform ${
+        className={`bg-black max-h-[4.4rem] px-6 rounded-t-xl mx-auto -top-8 duration-500 transform transition-transform ${
           mounted ? "translate-y-0" : "translate-y-full"
         }`}
       >

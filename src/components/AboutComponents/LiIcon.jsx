@@ -47,7 +47,7 @@ const LiIcon = ({ reference }) => {
             style={{
               pathLength: scrollYProgress,
             }}
-            className="stroke-pink-400 stroke-[4px] fill-white"
+            className="stroke-pink-300 stroke-[4px] fill-white"
           />
 
           <circle
