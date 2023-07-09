@@ -1,8 +1,12 @@
+"use client";
+
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Script from "next/script";
 import Footer from "@/components/Footer";
+import TransitionEffect from "@/components/TransitionEffect";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -22,9 +26,12 @@ export default function RootLayout({ children }) {
           type="module"
           src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
         />
+        <TransitionEffect text="Welcome to my Portfolio Website" />
         <Navbar />
-        <main className="flex-grow">{children}</main>
-        <Footer className="mt-auto" />
+        <main className="w-full h-full bg-slate-50/80 inline-block z-0">
+          {children}
+        </main>
+        <Footer className="mt-auto " />
       </body>
     </html>
   );

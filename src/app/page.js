@@ -1,24 +1,30 @@
-import Head from "next/head";
-import Image from "next/image";
+import { TypewriterComponent } from "@/components/HomeComponents/TypeWriter";
+import TransitionEffect from "@/components/TransitionEffect";
 import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4">
-      <main className="flex flex-col items-center justify-center min-h-screen py-2">
-        <h1 className="text-6xl font-bold text-blue-600">
-          Hi, I'm Keshav Juneja
-        </h1>
-
-        <p className="text-2xl mt-4">
+    <div className=" ">
+      <TransitionEffect text="Home Page" />"
+      <TypewriterComponent />
+      <main className="flex flex-col items-center justify-center md:mt-10 ml-0 md:ml-10">
+        <div className="xl:-mt-16 mt-32 ml-12 lg:-mt-14 md:-mt-8">
+          <span className="text-5xl">
+            <p className="font-thin">
+              I know the opening line was cringe,
+              <br /> but Hi, my name is
+            </p>{" "}
+            <span className="text-pink-300">Keshav Juneja</span>
+          </span>
+        </div>
+        {/* <p className="text-2xl mt-4">
           I'm web developer and designer based in India
-        </p>
-
-        <div className="flex mt-8 space-x-4">
+        </p> */}
+        <div className="flex mt-8 space-x-4 mb-9">
           <Link
             href="/KeshavResume.pdf"
             target={"_blank"}
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+            className="bg-pink-300 z-10 text-white px-4 py-2 rounded-lg hover:bg-pink-500"
           >
             Resume
           </Link>
@@ -29,8 +35,6 @@ export default function Home() {
             Contact me
           </Link>
         </div>
-
-        <div className="mt-12 grid grid-cols-3 gap-4"></div>
       </main>
     </div>
   );

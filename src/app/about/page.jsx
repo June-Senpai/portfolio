@@ -3,6 +3,7 @@
 import Experience from "@/components/AboutComponents/Education";
 import ProjectsPart from "@/components/AboutComponents/Projects";
 import Skills from "@/components/AboutComponents/Skills";
+import TransitionEffect from "@/components/TransitionEffect";
 import {
   motion,
   useInView,
@@ -22,7 +23,9 @@ const AnimatedNumbers = ({ value }) => {
 
   useEffect(() => {
     if (isInView) {
-      springValue.set(value);
+      setTimeout(() => {
+        springValue.set(value);
+      }, 1000);
     }
   }, [isInView, value, motionValue]);
 
@@ -46,7 +49,9 @@ const AnimatedText = ({ text }) => {
 
   useEffect(() => {
     if (isInView) {
-      springValue.set(text.length);
+      setTimeout(() => {
+        springValue.set(text.length);
+      }, 1000);
     }
   }, [isInView, text, motionValue]);
 
@@ -66,7 +71,6 @@ export default function About() {
   const isInView = useInView(ref, { once: true });
   const mainControls = useAnimation();
   useEffect(() => {
-    console.log({ isInView });
     if (isInView) {
       mainControls.start("visible");
     }
@@ -94,7 +98,7 @@ export default function About() {
   return (
     <div className="overflow-x-hidden">
       {/* for above scroll progress */}
-
+      <TransitionEffect text="About Page" />
       <motion.div
         className="fixed top-0 left-0 right-0 h-2.5 bg-pink-200 origin-left"
         style={{ scaleX }}
@@ -104,7 +108,7 @@ export default function About() {
           <motion.h1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 3 }}
+            transition={{ duration: 3, delay: 1 }}
           >
             <span>A</span>
             <span className="text-8xl font-extrabold bg-clip-text text-transparent bg-center bg-[url('https://images.unsplash.com/photo-1587738433410-8f34adcb0c5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-position-x-right">
@@ -126,7 +130,7 @@ export default function About() {
                 <AnimatedText text="+" />
               </span>
             </span>
-            <p className="text-lg font-light mt-5 w-[90%] leading-relaxed">
+            <p className="text-2xl font-light mt-5 w-[90%] leading-relaxed">
               Hi there! I'm a full stack developer with a passion for building
               awesome web applications. When I'm not coding or pushing pixels,
               you'll find me playing games or trying out new recipes in the
