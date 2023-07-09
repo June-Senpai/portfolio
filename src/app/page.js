@@ -17,9 +17,6 @@ export default function Home() {
             <span className="text-pink-300">Keshav Juneja</span>
           </span>
         </div>
-        {/* <p className="text-2xl mt-4">
-          I'm web developer and designer based in India
-        </p> */}
         <div className="flex mt-8 space-x-4 mb-9">
           <Link
             href="/KeshavResume.pdf"

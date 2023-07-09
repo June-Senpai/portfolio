@@ -2,5 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 html {
-  @apply scrollbar scrollbar-thin scrollbar-thumb-pink-300 scrollbar-track-pink-200 scrollbar-thumb-rounded-md;
+  @apply scrollbar-thin scrollbar-thumb-pink-300 scrollbar-track-pink-200 scrollbar-thumb-rounded-md;
 }
