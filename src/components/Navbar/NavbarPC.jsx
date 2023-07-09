@@ -51,7 +51,7 @@ const NavbarPC = () => {
                   key={i}
                   className={`group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-pink-100 hover:rounded-xl rounded-md ${
                     isActive && " text-pink-400 "
-                  }`}
+                  } transition-colors duration-300`}
                 >
                   <div className="text-xl">
                     <ion-icon name={menu.icon}></ion-icon>
