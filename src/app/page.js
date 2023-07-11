@@ -18,13 +18,13 @@ export default function Home() {
           </span>
         </div>
         <div className="flex mt-8 space-x-4 mb-9">
-          <Link
+          <a
             href="/KeshavResume.pdf"
             target={"_blank"}
             className="bg-pink-300 z-10 text-white px-4 py-2 rounded-lg hover:bg-pink-500"
           >
             Resume
-          </Link>
+          </a>
           <Link
             href="/contact"
             className="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300"
