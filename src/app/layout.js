@@ -17,11 +17,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ height: "100%" }}>
-      <body
-        style={{ height: "100%" }}
-        className={`${inter.className} flex flex-col min-h-screen`}
-      >
+    <html lang="en">
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
         <Script
           strategy="lazyOnload"
           type="module"
