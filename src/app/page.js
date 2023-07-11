@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className=" ">
+    <div className="mb-10 ">
       <TransitionEffect text="Home Page" />"
       <TypewriterComponent />
       <main className="flex flex-col items-center justify-center md:mt-10 ml-0 md:ml-10">
