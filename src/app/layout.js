@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar/Navbar";
 import Script from "next/script";
+import Footer from "@/components/Footer";
 import TransitionEffect from "@/components/TransitionEffect";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
         <main className="w-full h-full bg-slate-50/80 inline-block z-0">
           {children}
         </main>
-        {/* <Footer className="mt-auto " /> */}
+        <Footer className="mt-auto " />
       </body>
     </html>
   );

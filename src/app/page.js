@@ -1,13 +1,14 @@
 import { TypewriterComponent } from "@/components/HomeComponents/TypeWriter";
 import TransitionEffect from "@/components/TransitionEffect";
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="">
-      <TransitionEffect text="Home Page" />"
+    <div className="flex flex-col min-h-screen">
+      <TransitionEffect text="Home Page" />
       <TypewriterComponent />
-      <main className="flex flex-col items-center justify-center md:mt-10 ml-0 md:ml-10">
+      <main className="flex-grow flex flex-col items-center justify-center md:mt-10 ml-0 md:ml-10">
         <div className="xl:-mt-16 mt-32 ml-12 lg:-mt-14 md:-mt-8">
           <span className="text-5xl">
             <p className="font-thin">
